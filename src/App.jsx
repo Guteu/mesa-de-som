@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 import InTheEnd from './assets/audios/In-The-End-Linkin-Park.m4a';
+import LMB_PNG from './assets/images/left-mouse-button.png';
+import RMB_PNG from './assets/images/right-mouse-button.png';
 
 
 function Sound({ soundSrc = "../public/audios/chiado-tv.mp3", soundName = "Chiado de TV" }) {
@@ -94,8 +96,8 @@ function App() {
 			</div>
 			<div className='controls'>
 				<h1>Controles</h1>
-				<p><img src="/src/assets/images/left-mouse-button.png" alt="" />: Tocar/Pausar audio</p>
-				<p><img src="/src/assets/images/right-mouse-button.png" alt="" />: Tocar audio em paralelo (irreversível)</p>
+				<p><img src={LMB_PNG} alt="Botão esquerdo do mouse" />: Tocar/Pausar audio</p>
+				<p><img src={RMB_PNG} alt="Botão direito do mouse" />: Tocar audio em paralelo (irreversível)</p>
 			</div>
 		</>
 	)

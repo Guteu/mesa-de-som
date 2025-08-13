@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
-import InTheEnd from './assets/audios/In-The-End-Linkin-Park.m4a';
+//import InTheEnd from './assets/audios/In-The-End-Linkin-Park.m4a';
+import OneShortDay from './assets/audios/One Short Day (0;55 - 1;34).mp3'
+import DancingThroughLife from './assets/audios/Dancing Through Life (2;43 - 3;18).mp3'
 import LMB_PNG from './assets/images/left-mouse-button.png';
 import RMB_PNG from './assets/images/right-mouse-button.png';
 
@@ -13,10 +15,10 @@ function Sound({ soundSrc = "../public/audios/chiado-tv.mp3", soundName = "Chiad
 	const audio = useRef()
 	const buttonRef = useRef()
 	const [playing, setPlaying] = useState(false);
-	
-	function toggleButtonVisual(isPlaying){
+
+	function toggleButtonVisual(isPlaying) {
 		setPlaying(() => isPlaying)
-		if(isPlaying) {
+		if (isPlaying) {
 			buttonRef.current.style.backgroundPosition = "right"
 			buttonRef.current.style.backgroundColor = "red"
 		} else {
@@ -29,27 +31,38 @@ function Sound({ soundSrc = "../public/audios/chiado-tv.mp3", soundName = "Chiad
 		toggleButtonVisual(false)
 	}
 
-	function togglePlay(e) {
+	function togglePlay(override) {
+		if (typeof (override) === "boolean") {
+			override = !override
+		}
+		setPlaying(playing => override ?? !playing)
+		if (playing) {
+			// mudar sprite do botão para normal
+			audio.current.pause()
+			toggleButtonVisual(false)
+			return false
+		}
+		// mudar sprite do botão para tocando (amassado)
+		toggleButtonVisual(true)
+		audio.current.play()
+		return true;
+	}
+
+	function returnToZero() {
+		//togglePlay(false)
+		audio.current.currentTime = 0
+	}
+
+	function onButtonPressed(e) {
 		e.preventDefault()
 		switch (e.button) {
-			case 0:
-				setPlaying(playing => !playing)
-				if (playing) {
-					// mudar sprite do botão para normal
-					audio.current.pause()
-					toggleButtonVisual(false)
-					return false
-				}
-				// mudar sprite do botão para tocando (amassado)
-				toggleButtonVisual(true)
-				audio.current.play()
+			case 0: // BOTÃO ESQUERDO
+				togglePlay();
 				break;
-			case 1:
-				audio.current.pause()
-				audio.current.currentTime = 0
-				toggleButtonVisual(false)
+			case 1: // RODA DO MOUSE
+				returnToZero();
 				break;
-			case 2:
+			case 2: // BOTÃO DIREITO
 				let parallelAudio = new Audio(soundSrc)
 				parallelAudio.volume = audio.current.volume
 				parallelAudio.oncanplaythrough = () => parallelAudio.play()
@@ -67,9 +80,11 @@ function Sound({ soundSrc = "../public/audios/chiado-tv.mp3", soundName = "Chiad
 		<>
 			<div className="box">
 				<p>{soundName}</p>
-				<button onMouseDown={togglePlay} onKeyDown={(e) => {
-
-				}} onContextMenu={(e) => e.preventDefault()} ref={buttonRef}></button>
+				<div>
+					<button onMouseDown={onButtonPressed} onKeyDown={(e) => {
+					}} onContextMenu={(e) => e.preventDefault()} ref={buttonRef}></button>
+					<button className='reset_button' onMouseDown={returnToZero}></button>
+				</div>
 				<audio controls ref={audio} onEnded={onPlayEnded}>
 					<source src={soundSrc} type="audio/mpeg" />
 				</audio>
@@ -87,12 +102,8 @@ function App() {
 				<h1>Mesa de Som</h1>
 			</header>
 			<div className="megaBox">
-				<Sound soundName='In the End - Linkin Park' soundSrc={InTheEnd} />
-				<Sound soundName='Placeholder 1' soundSrc='./audios/Chiado_de_TV-Repórteres.m4a' />
-				<Sound soundName='Placeholder 2' soundSrc='./audios/Ato_1-Cena_1.m4a' />
-				<Sound soundName='Placeholder 3' soundSrc='./audios/Notificação_Cancelamento.m4a'/>
-				<Sound soundName='Placeholder 4' soundSrc='./audios/Dança_do_Cancelamento.m4a'/>
-				<Sound soundName='Placeholder 5' soundSrc='./audios/Dança_do_Humanidades_2.m4a'/>
+				<Sound soundName='One Short Day (0:55 - 1:34)' soundSrc={OneShortDay} />
+				<Sound soundName='Dancing Through Life (2:43 - 3:18)' soundSrc={DancingThroughLife} />
 			</div>
 			<div className='controls'>
 				<h1>Controles</h1>

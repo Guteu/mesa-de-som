@@ -28,6 +28,13 @@ button {
   height: 89px;
 }
 
+button.reset_button {
+  background: url("/src//assets/images/restart-button.png");
+  background-size: contain;
+  border-radius: 0;
+  border: none;
+}
+
 header h1 {
   font-size: 70px;
   margin-top: 10px;

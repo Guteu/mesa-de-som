@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 //import InTheEnd from './assets/audios/In-The-End-Linkin-Park.m4a';
-import OneShortDay from './assets/audios/One Short Day (0;55 - 1;34).mp3'
-import DancingThroughLife from './assets/audios/Dancing Through Life (2;43 - 3;18).mp3'
+import OneShortDay from './assets/audios/One Short Day (0;52 - 1;34 faded).mp3'
+import DancingThroughLife from './assets/audios/Dancing Through Life (2;32 - 3;18 faded).mp3'
+import SomewhereOverTheRainbow from './assets/audios/Somewhere Over the Rainbow - Judy Garland [Acoustic Karaoke] [0;04 - 1;24].mp3'
 import LMB_PNG from './assets/images/left-mouse-button.png';
 import RMB_PNG from './assets/images/right-mouse-button.png';
 
@@ -102,8 +103,9 @@ function App() {
 				<h1>Mesa de Som</h1>
 			</header>
 			<div className="megaBox">
-				<Sound soundName='One Short Day (0:55 - 1:34)' soundSrc={OneShortDay} />
-				<Sound soundName='Dancing Through Life (2:43 - 3:18)' soundSrc={DancingThroughLife} />
+				<Sound soundName='One Short Day (0:51 - 1:34)' soundSrc={OneShortDay} />
+				<Sound soundName='Dancing Through Life (2:32 - 3:18)' soundSrc={DancingThroughLife} />
+				<Sound soundName='Somewhere Over the Rainbow [acoustic] (0:04 - 1:24)' soundSrc={SomewhereOverTheRainbow} />
 			</div>
 			<div className='controls'>
 				<h1>Controles</h1>

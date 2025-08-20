@@ -6,6 +6,10 @@ import OneShortDay from './assets/audios/One Short Day (0;52 - 1;34 faded).mp3'
 import DancingThroughLife from './assets/audios/Dancing Through Life (From Wicked The Soundtrack) [2;36 - 3;18].mp3'
 import SomewhereOverTheRainbow from './assets/audios/Somewhere Over the Rainbow - Judy Garland [Acoustic Karaoke] [0;20 - 1;24].mp3'
 import Trovao from './assets/audios/trovao-soundEffect-v1.mp3'
+import TrovaoLongo from './assets/audios/Best thunder sound for sleep.mp3'
+import Saida_Espantalho from './assets/audios/saida_espantalho.mp3'
+import Saida_homemDeLata from './assets/audios/saida_homemDeLata.mp3'
+import Saida_leao from './assets/audios/saida_leao.mp3'
 
 import LMB_PNG from './assets/images/left-mouse-button.png';
 import RMB_PNG from './assets/images/right-mouse-button.png';
@@ -106,7 +110,11 @@ function App() {
 			</header>
 			<div className="megaBox">
 				<Sound soundName='Trovao' soundSrc={Trovao} />
+				<Sound soundName='Trovao Longo' soundSrc={TrovaoLongo} />
 				<Sound soundName='Somewhere Over the Rainbow [acoustic] (0:20 - 1:24)' soundSrc={SomewhereOverTheRainbow} />
+				<Sound soundName='Saída Espantalho' soundSrc={Saida_Espantalho} />
+				<Sound soundName='Saída Homem de Lata' soundSrc={Saida_homemDeLata} />
+				<Sound soundName='Saída Leão' soundSrc={Saida_leao} />
 				<Sound soundName='One Short Day (0:51 - 1:34)' soundSrc={OneShortDay} />
 				<Sound soundName='Dancing Through Life (2:36 - 3:18)' soundSrc={DancingThroughLife} />
 			</div>

@@ -10,7 +10,7 @@ import TrovaoLongoSemDelay from './assets/audios/Best thunder sound for sleep [s
 import Saida_Espantalho from './assets/audios/saida_espantalho.mp3'
 import Saida_homemDeLata from './assets/audios/saida_homemDeLata.mp3'
 import Saida_leao from './assets/audios/saida_leao.mp3'
-import BruxaMa_indo_para_o_castelo from './assets/audios/bruxaMa-indo-para-o-magico-de-OZ.mp3'
+import BruxaMa_indo_para_o_castelo from './assets/audios/bruxaMa-indo-para-o-magico-de-OZ-[+15db].mp3'
 import Tempestade from './assets/audios/som de tempestade.mp3'
 
 import LMB_PNG from './assets/images/left-mouse-button.png';
@@ -115,11 +115,11 @@ function App() {
 				<Sound soundName='Tempestade' soundSrc={Tempestade} />
 				<Sound soundName='Trovao Longo' soundSrc={TrovaoLongo} />
 				<Sound soundName='Trovao Longo Sem Delay' soundSrc={TrovaoLongoSemDelay} />
+				<Sound soundName='Bruxa Má indo para o castelo de OZ' soundSrc={BruxaMa_indo_para_o_castelo} />
 				<Sound soundName='Saída Espantalho' soundSrc={Saida_Espantalho} />
 				<Sound soundName='Saída Homem de Lata' soundSrc={Saida_homemDeLata} />
 				<Sound soundName='Saída Leão' soundSrc={Saida_leao} />
 				<Sound soundName='One Short Day (0:51 - 1:34)' soundSrc={OneShortDay} />
-				<Sound soundName='Bruxa Má indo para o castelo de OZ' soundSrc={BruxaMa_indo_para_o_castelo} />
 				<Sound soundName='Dancing Through Life (2:36 - 3:18)' soundSrc={DancingThroughLife} />
 			</div>
 			<div className='controls'>
